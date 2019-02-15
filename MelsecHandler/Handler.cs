@@ -20,7 +20,7 @@ namespace MelsecHandler
             foreach (var item in classmember)
             {
                 //Console.WriteLine(item);
-                Type tp = Type.GetType(item.ToString());//取得子類的名子
+                Type tp = Type.GetType(item.ToString());//取得子類的名子 只有public的
                 object NewObject = Activator.CreateInstance(tp, true);//實例一個子類 裝箱的狀態
                 Melsec MelsecObj = (Melsec)NewObject;//拆箱為Melsec類
                 //Console.WriteLine("類型:{0} 表頭:{1}", MelsecObj.GetType(), MelsecObj.header);
