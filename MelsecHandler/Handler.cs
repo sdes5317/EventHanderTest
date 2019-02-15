@@ -9,6 +9,9 @@ namespace MelsecHandler
 
         public override byte header { get ; set ; }
 
+        /// <summary>
+        /// 在實體化的時候會把全部需要監控的協議事件加入清單
+        /// </summary>
         public Handler()
         {
             var classmember = typeof(Handler).GetNestedTypes();//列出全部的public子類
