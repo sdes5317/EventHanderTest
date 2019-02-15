@@ -17,7 +17,9 @@ namespace MelsecHandler
             packet = new byte[] { 0x15, 0x50 };
             Handler.MelsecFactory(packet);
 
-            //封包長度測試
+            //封包長度測試 
+
+            //故意做一個長度不符合期待的 測試錯誤訊息有沒有攔截到
             packet = new byte[] { 0x15 };
             Handler.MelsecFactory(packet);
         }
