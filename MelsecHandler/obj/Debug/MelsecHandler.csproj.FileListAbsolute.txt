@@ -5,3 +5,10 @@ D:\workspace\MelsecHandler\MelsecHandler\obj\Debug\MelsecHandler.csprojAssemblyR
 D:\workspace\MelsecHandler\MelsecHandler\obj\Debug\MelsecHandler.csproj.CoreCompileInputs.cache
 D:\workspace\MelsecHandler\MelsecHandler\obj\Debug\MelsecHandler.exe
 D:\workspace\MelsecHandler\MelsecHandler\obj\Debug\MelsecHandler.pdb
+Z:\CSharp\EventHanderTest\MelsecHandler\obj\Debug\MelsecHandler.csprojAssemblyReference.cache
+Z:\CSharp\EventHanderTest\MelsecHandler\obj\Debug\MelsecHandler.csproj.CoreCompileInputs.cache
+Z:\CSharp\EventHanderTest\MelsecHandler\obj\Debug\MelsecHandler.exe
+Z:\CSharp\EventHanderTest\MelsecHandler\obj\Debug\MelsecHandler.pdb
+Z:\CSharp\EventHanderTest\MelsecHandler\bin\Debug\MelsecHandler.exe.config
+Z:\CSharp\EventHanderTest\MelsecHandler\bin\Debug\MelsecHandler.exe
+Z:\CSharp\EventHanderTest\MelsecHandler\bin\Debug\MelsecHandler.pdb

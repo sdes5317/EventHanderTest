@@ -1,21 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MelsecHandler
 {
-    public abstract class Handler : Melsec
+    public class Handler : Melsec
     {
-        /// <summary>
-        /// 解析收到的封包表頭
-        /// 遍歷在Handler底下的子類的表頭
-        /// 如果跟收到的表頭相符觸發該事件
-        /// </summary>
-        /// <param name="packet"></param>
-        public static void MelsecFactory(byte[] packet)
+        static List<Melsec> handler = new List<Melsec>();
+
+        public override byte header { get ; set ; }
+
+        public Handler()
         {
-            if (packet.Length<2)
-            {
-                throw new LengthException();
-            }
             var classmember = typeof(Handler).GetNestedTypes();//列出全部的public子類
             foreach (var item in classmember)
             {
@@ -23,12 +18,36 @@ namespace MelsecHandler
                 Type tp = Type.GetType(item.ToString());//取得子類的名子
                 object NewObject = Activator.CreateInstance(tp, true);//實例一個子類 裝箱的狀態
                 Melsec MelsecObj = (Melsec)NewObject;//拆箱為Melsec類
+                handler.Add(MelsecObj);
                 //Console.WriteLine("類型:{0} 表頭:{1}", MelsecObj.GetType(), MelsecObj.header);
-                if (MelsecObj.header == packet[0])
+                
+            }
+        }
+        /// <summary>
+        /// 解析收到的封包表頭
+        /// 遍歷在Handler底下的子類的表頭
+        /// 如果跟收到的表頭相符觸發該事件
+        /// </summary>
+        /// <param name="packet"></param>
+        public void MelsecFactory(byte[] packet)
+        {
+            if (packet.Length<2)
+            {
+                throw new LengthException();
+            }
+            
+            foreach (var item in handler)
+            {
+                if (item.header == packet[0])
                 {
-                    MelsecObj.Process(packet);
+                    item.Process(packet);
                 }
             }
+        }
+
+        public override void Process(byte[] packet)
+        {
+            throw new NotImplementedException();
         }
 
         protected class LengthException : Exception

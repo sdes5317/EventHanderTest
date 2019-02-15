@@ -9,13 +9,14 @@ namespace MelsecHandler
     {
         static void Main(string[] args)
         {
+            Handler handler = new Handler();
             //協議測試
             byte[] packet = new byte[] { 0x02, 0x50 };
-            Handler.MelsecFactory(packet);
+            handler.MelsecFactory(packet);
             packet = new byte[] { 0x06, 0x50 };
-            Handler.MelsecFactory(packet);
+            handler.MelsecFactory(packet);
             packet = new byte[] { 0x15, 0x50 };
-            Handler.MelsecFactory(packet);
+            handler.MelsecFactory(packet);
 
             //封包長度測試 
 
