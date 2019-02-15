@@ -1,0 +1,7 @@
+D:\workspace\MelsecHandler\MelsecHandler\bin\Debug\MelsecHandler.exe.config
+D:\workspace\MelsecHandler\MelsecHandler\bin\Debug\MelsecHandler.exe
+D:\workspace\MelsecHandler\MelsecHandler\bin\Debug\MelsecHandler.pdb
+D:\workspace\MelsecHandler\MelsecHandler\obj\Debug\MelsecHandler.csprojAssemblyReference.cache
+D:\workspace\MelsecHandler\MelsecHandler\obj\Debug\MelsecHandler.csproj.CoreCompileInputs.cache
+D:\workspace\MelsecHandler\MelsecHandler\obj\Debug\MelsecHandler.exe
+D:\workspace\MelsecHandler\MelsecHandler\obj\Debug\MelsecHandler.pdb
