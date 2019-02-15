@@ -36,6 +36,13 @@ namespace MelsecHandler
             public LengthException() : base("Format Error: Length") { }
         }
 
+        /// <summary>
+        /// 如果要擴充協議
+        /// 只要在這個class
+        /// 新增一個實作Melsec的類
+        /// 收到封包時的判斷就會有這個類了
+        /// </summary>
+
         public class ACK: Melsec
         {
             public override byte header { get; set; } = 0x06;
