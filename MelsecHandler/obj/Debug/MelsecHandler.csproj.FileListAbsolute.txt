@@ -12,3 +12,10 @@ Z:\CSharp\EventHanderTest\MelsecHandler\obj\Debug\MelsecHandler.pdb
 Z:\CSharp\EventHanderTest\MelsecHandler\bin\Debug\MelsecHandler.exe.config
 Z:\CSharp\EventHanderTest\MelsecHandler\bin\Debug\MelsecHandler.exe
 Z:\CSharp\EventHanderTest\MelsecHandler\bin\Debug\MelsecHandler.pdb
+C:\HaoChih\workspace\EventHanderTest\MelsecHandler\bin\Debug\MelsecHandler.exe.config
+C:\HaoChih\workspace\EventHanderTest\MelsecHandler\bin\Debug\MelsecHandler.exe
+C:\HaoChih\workspace\EventHanderTest\MelsecHandler\bin\Debug\MelsecHandler.pdb
+C:\HaoChih\workspace\EventHanderTest\MelsecHandler\obj\Debug\MelsecHandler.csprojAssemblyReference.cache
+C:\HaoChih\workspace\EventHanderTest\MelsecHandler\obj\Debug\MelsecHandler.csproj.CoreCompileInputs.cache
+C:\HaoChih\workspace\EventHanderTest\MelsecHandler\obj\Debug\MelsecHandler.exe
+C:\HaoChih\workspace\EventHanderTest\MelsecHandler\obj\Debug\MelsecHandler.pdb

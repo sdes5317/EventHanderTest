@@ -24,6 +24,7 @@ namespace MelsecHandler
             packet = new byte[] { 0x15 };
             //Handler.MelsecFactory(packet);
 
+
         }
 
     }
