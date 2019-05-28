@@ -4,24 +4,20 @@ using System.Linq;
 
 namespace MelsecHandler
 {
-    public class Handler : Melsec
+    public class Handler
     {
-        private static List<Melsec> _handler = new List<Melsec>();
+        private static List<IHandler> _handler = new List<IHandler>();
 
-        public override byte[] headers { get; set; }
-
-        /// <summary>
-        /// 在實體化的時候會把全部需要監控的協議事件加入清單
-        /// </summary>
         public Handler()
         {
+            #region 把全部需要監控的協議事件加入清單
             var classmember = typeof(Handler).GetNestedTypes();//列出全部的public子類
-            foreach (var item in classmember)
+            foreach (var member in classmember)
             {
                 //Console.WriteLine(item);
-                Type tp = Type.GetType(item.ToString());//取得子類的名子
-                object NewObject = Activator.CreateInstance(tp, true);//實例一個子類 裝箱的狀態
-                Melsec MelsecObj = NewObject as Melsec;//拆箱為Melsec類 用as來做安全轉換 沒有實作Melsec的會放null
+                //Type tp = Type.GetType(item.ToString());//取得子類的名子
+                object NewObject = Activator.CreateInstance(member, true);//實例一個子類 裝箱的狀態
+                IHandler MelsecObj = NewObject as IHandler;//拆箱為Melsec類 用as來做安全轉換 沒有實作Melsec的會放null
                 if (MelsecObj != null)
                 {
                     _handler.Add(MelsecObj);
@@ -30,6 +26,8 @@ namespace MelsecHandler
             }
 
             CheckIsHeadRepeat();//檢查是否有重複的header
+
+            #endregion
         }
         public class MyClass//用來驗證沒實作協議的類有沒有被誤加到事件
         {
@@ -62,7 +60,7 @@ namespace MelsecHandler
         /// </summary>
         private void CheckIsHeadRepeat()
         {
-            List<byte> head_list = new List<byte>();
+            List<int> head_list = new List<int>();
             foreach (var handle in _handler)
             {
                 foreach (var header in handle.headers)
@@ -74,10 +72,6 @@ namespace MelsecHandler
                     head_list.Add(header);
                 }
             }
-        }
-        public override void Process(byte[] packet)
-        {
-            throw new NotImplementedException();
         }
 
         protected class LengthException : Exception
@@ -98,31 +92,31 @@ namespace MelsecHandler
         /// <summary>
         /// 如果要擴充協議
         /// 只要在這個class
-        /// 新增一個實作Melsec的類
+        /// 新增一個實作IHandler的類
         /// 收到封包時的判斷就會有這個類了
         /// </summary>
 
-        public class ACK : Melsec
+        public class ACK : IHandler
         {
-            public override byte[] headers { get; set; } = { 0x06 };
+            public override int[] headers { get; set; } = { 0x06 };
 
             public override void Process(byte[] packet)
             {
                 Console.WriteLine("這是ACK協議");
             }
         }
-        public class STX : Melsec
+        public class STX : IHandler
         {
-            public override byte[] headers { get; set; } = { 0x02 };
+            public override int[] headers { get; set; } = { 0x02 };
 
             public override void Process(byte[] packet)
             {
                 Console.WriteLine("這是STX協議");
             }
         }
-        public class Error : Melsec
+        public class Error : IHandler
         {
-            public override byte[] headers { get; set; } = { 0x15 };
+            public override int[] headers { get; set; } = { 0x15 };
 
             public override void Process(byte[] packet)
             {
